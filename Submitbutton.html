@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+        <p id="demo"></p>
+        <!-- Input box -->
+        <label for="Name">Name</label>
+        <input type="text" id="first" name="Student Name" placeholder="eg:Ashok Selvan.K">
+    
+        <!-- Submit button -->
+        
+    
+        <!-- Output area -->
+        <p id="output"></p>
+
+        <label for="designation">Designation</label>
+        <input type="text" id="second" name="Designation" placeholder="eg:Ashok Selvan.K">
+
+    
+        <!-- Submit button -->
+        <button onclick="displayoutput()">Submit</button>
+        <p id="Output"></p>
+
+        <label for="date">Date:</label>
+        <input type="date" id="Ddate" name="date" placeholder="DD/MM/YYYY">
+
+        <button onclick="ddate()">Submit</button>
+    
+        <!-- Output area -->
+        <p id="DDate"></p>
+    
+        <!-- JavaScript to handle the button click -->
+        <script>
+            const d = new Date();
+            document.getElementById("demo").innerHTML = d;
+            function displayOutput() {
+        
+                var input = document.getElementById('first').value
+        
+                document.getElementById('output').innerText = "" + input;
+            }
+            function displayoutput(){
+
+                var input = document.getElementById('second').value
+        
+                document.getElementById('Output').innerText = "" + input;
+            }
+            function ddate(){
+                var input = document.getElementById('Ddate').value
+        
+                document.getElementById('DDate').innerText = "" + input;
+
+            }
+        </script>
+</body>
+</html>

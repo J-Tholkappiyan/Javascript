@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTC Date Button</title>
+    <style>
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="showUTCDate()">Click me for UTC Date</button><br>
+    <div>
+        <label id="doblbl" for="dob">DOB</label>
+        <input type="date" id="dob" name="dob" placeholder="">
+    </div>
+    <script>
+        function showUTCDate() {
+            const currentDate = new Date(dob.value);
+            
+            
+            const day = String(currentDate.getUTCDate()).padStart(2, '0');
+            const month = String(currentDate.getUTCMonth() + 1).padStart(2, '0');
+            const year = currentDate.getUTCFullYear();
+            
+            const hours = String(currentDate.getUTCHours()).padStart(2, '0');
+            const minutes = String(currentDate.getUTCMinutes()).padStart(2, '0');
+            const seconds = String(currentDate.getUTCSeconds()).padStart(2, '0');
+            
+            const formattedUTCDate = `${day}/${month}/${year}`;
+            alert("Current UTC Date and Time: " + formattedUTCDate);
+        }
+    </script>
+
+</body>
+</html>

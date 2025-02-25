@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <div>
+        <form id="myForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="Designation">Designation:</label>
+            <input type="text" id="Designation" name="Designation" required>
+
+            <label for="Date">Date</label>
+            <input type="datetime-local" id="Date" name="Date" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- This div will be used to display the output -->
+    <div id="output"></div>
+
+    <script>
+        const d = new Date();
+        document.getElementById("demo").innerHTML = d;
+        // Add an event listener to handle form submission
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Get input values
+            const name = document.getElementById('name').value;
+            const Designation = document.getElementById('Designation').value;
+            const Date = document.getElementById('Date').value;
+
+            // Display the output on the same screen
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = `<p> ${name}</p><p>${Designation}</p><p>${Date}</p>`;
+        });
+    </script>
+</body>
+</html>

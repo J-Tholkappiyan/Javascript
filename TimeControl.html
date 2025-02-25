@@ -1,0 +1,48 @@
+<html> <head> <title>Jacascript Timer control</title></head>
+<style>
+.main
+{
+width:500px; height:200px; position: absolute; top:50%; left:50%;
+text-align: center; background-color: #4dc3ff; color:white;
+border: 2px solid gray; transform: translate(-50%,-50%);
+}
+input[type=text]
+{
+width:auto; height:50px; margin-top: 50px;
+border: 2px solid rebeccapurple; font-size: larger;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.button_style
+{
+width:auto; height:50px; margin-top: 50px;
+border: 2px solid rebeccapurple; font-size: larger;
+font-family: 'Courier New', Courier, monospace;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+ 
+input
+</style>
+<script>
+function calltimer()
+{
+x=window.setInterval("showtimer()",100);
+}
+function stoptimer()
+{
+clearInterval(x);
+}
+function showtimer()
+{
+const d=new Date();
+const date=d.toLocaleDateString(); const time=d.toLocaleTimeString();
+document.getElementById("t1").value=date+time;
+}
+</script>
+<body>
+<div class="main">
+<input type="text" id="t1">
+<button class="button_style" onclick="calltimer()">Start</button>
+<button class="button_style" onclick="stoptimer()">Stop</button>
+</div>
+</body>
+</html>

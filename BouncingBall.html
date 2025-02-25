@@ -1,0 +1,53 @@
+<html>
+<head> <title>Bouncing Ball</title> <style> canvas {
+border: 1px solid black; background-color: antiquewhite; position: absolute;
+top:50%; left:50%;
+transform: translate(-50%,-50%);
+}
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+// Set up the canvas
+const canvas = document.getElementById('canvas'); 
+const ctx = canvas.getContext('2d');
+// Set canvas size 
+canvas.width = 600;
+canvas.height = 400;
+// Ball properties
+ const ball =
+{
+    x: 100,
+    y: 100,
+    radius: 20,
+    dx: 4, // Ball's horizontal speed
+    dy: 2 // Ball's vertical speed
+};
+// Function to update and draw the ball
+ function updateBall()
+{
+// Clear the canvas
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+// Draw the ball 
+ctx.beginPath(); 
+ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+ ctx.fillStyle = "#0095DD";
+ctx.fill(); ctx.closePath();
+// Update ball position
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+// Check for wall collisions (left, right, top, bottom)
+if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0)
+{
+ball.dx = -ball.dx; // Reverse horizontal direction
+}
+if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0)
+{
+ball.dy = -ball.dy; // Reverse vertical direction
+}
+}
+// Set an interval to update the ball every 10 milliseconds 
+setInterval(updateBall, 10);
+</script>
+</body></html>

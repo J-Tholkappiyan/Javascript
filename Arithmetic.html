@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h2> Arithmatic operation</h2>
+    F.Value : <input type="number" id="fv" value="0" required/></br>
+    S.Value : <input type="number" id="sv" value="0" required/></br>
+    operation :<select id="op" onchange="arith()"><option>Add</option><option>Sub</option><option>Mul</option><option>Div</option><option>Mod</option></select></br>
+    Answer  : <input type="text" id="ans" readonly="true"/>
+    
+ 
+     <script>function arith()
+     {
+        if(op.value=="Add")
+        ans.value=Number(fv.value)+Number(sv.value);
+        if(op.value=="Sub")
+        ans.value=Number(fv.value)-Number(sv.value);
+        if(op.value=="Mul")
+        ans.value=Number(fv.value)*Number(sv.value);
+        if(op.value=="Div")
+        ans.value=Number(fv.value)/Number(sv.value);
+        if(op.value=="Mod")
+        ans.value=Number(fv.value)%Number(sv.value);
+    
+    }
+        </script>
+</body>
+</html>

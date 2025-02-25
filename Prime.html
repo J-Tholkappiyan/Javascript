@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prime Number Finder</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; background-color: black; color: limegreen; }
+        input, button { padding: 10px; font-size: 18px; margin: 10px; }
+        #output { margin-top: 20px; font-size: 20px; font-weight: bold; }
+        #typing { font-size: 24px; color: yellow; white-space: pre-wrap; }
+        .robot-box { border: 2px solid limegreen; padding: 15px; display: inline-block; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <h2>🤖 AI Prime Number Finder 🤖</h2>
+    
+    <label>Enter Range (Max Value):</label>
+    <input type="number" id="range" placeholder="Enter a number" required><br>
+    
+    <button onclick="findLargestPrime()">Find Largest Prime</button>
+
+    <div id="output" class="robot-box">
+        <p>Largest Prime: <span id="typing"></span></p>
+        <p>All Primes: <span id="primesList"></span></p>
+        <p>Prime Count: <span id="primeCount"></span></p>
+        <p>Sum of Primes: <span id="primeSum"></span></p>
+        <p>Average: <span id="primeAvg"></span></p>
+    </div>
+
+    <script>
+        function isPrime(num) {
+            if (num < 2) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        function findLargestPrime() {
+            let max = parseInt(document.getElementById("range").value);
+            if (isNaN(max) || max < 2) {
+                alert("Please enter a valid number greater than 2.");
+                return;
+            }
+
+            let primes = [];
+            let largestPrime = 2, sum = 0;
+
+            for (let i = 2; i <= max; i++) {
+                if (isPrime(i)) {
+                    primes.push(i);
+                    sum += i;
+                    largestPrime = i;
+                }
+            }
+
+            let count = primes.length;
+            let avg = count > 0 ? (sum / count).toFixed(2) : 0;
+
+            document.getElementById("primesList").innerText = primes.join(", ");
+            document.getElementById("primeCount").innerText = count;
+            document.getElementById("primeSum").innerText = sum;
+            document.getElementById("primeAvg").innerText = avg;
+
+            // Typing animation effect for largest prime
+            let text = largestPrime.toString();
+            let i = 0;
+            document.getElementById("typing").innerText = "";
+
+            function typeEffect() {
+                if (i < text.length) {
+                    document.getElementById("typing").innerText += text.charAt(i);
+                    i++;
+                    setTimeout(typeEffect, 100); // Adjust typing speed
+                }
+            }
+            typeEffect();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button</title>
+</head>
+<script>
+function addTextbox() {
+    // Create a new input element
+    const textbox = document.createElement("input");
+    // Set the type of input element as "text"
+    textbox.type = "text";
+    // Optionally, set some placeholder text
+    textbox.placeholder = "Enter text here";
+
+    // Add the newly created textbox to the container
+    document.getElementById("textboxContainer").appendChild(textbox);
+}
+</script>
+<body>
+        <h1>Button Click</h1>
+
+        <p><button type="button" onclick="alert('Hello world!')">Click Here!</button></p>
+        <form>
+            <p type="number">Enter the first number:<input id="first"></p>
+            <p type="number">Enter the second number:<input id="second"></p>
+            <div>
+                <button type="reset">CLEAR</button>
+                <button type="button" onclick="addTextbox()">Add Textbox</button>
+                <div id="textboxContainer"></div>
+            </div>
+        </form>
+
+        <a ><button type="button">Click Here!</button></a>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Operations</title>
+</head>
+<body>
+   <h2>Arithmetic Operation</h2>
+    
+    <label>F.Value :</label> 
+    <input type="number" id="fv" value="0" required/><br>
+    
+    <label>L.Value :</label> 
+    <input type="number" id="sv" value="0" required/><br>
+    
+    <label>Operation :</label>
+    <select id="op"></select><br>
+    
+    <label>Even :</label>
+    <select id="op1"></select><br>
+    
+    <label>Odd :</label>
+    <select id="op2"></select><br>
+    
+    <label>Even Sum :</label>
+    <input type="number" id="fv1" readonly/><br>
+    
+    <label>Odd Sum :</label>
+    <input type="number" id="sv1" readonly/><br>
+
+    <button id="aaa" onclick="valueadd()">OK</button>
+ 
+    <script>
+        function valueadd() {
+            let fv = parseInt(document.getElementById("fv").value);
+            let sv = parseInt(document.getElementById("sv").value);
+
+            let op = document.getElementById("op");
+            let op1 = document.getElementById("op1");
+            let op2 = document.getElementById("op2");
+            let fv1 = document.getElementById("fv1");
+            let sv1 = document.getElementById("sv1");
+
+            // Clear previous selections
+            op.innerHTML = "";
+            op1.innerHTML = "";
+            op2.innerHTML = "";
+
+            // Reset even and odd sum
+            let evenSum = 0;
+            let oddSum = 0;
+
+            for (let i = fv; i <= sv; i++) {
+                let option = document.createElement("option");
+                option.text = i;
+                op.add(option);
+
+                if (i % 2 == 0) {
+                    let optionEven = document.createElement("option");
+                    optionEven.text = i;
+                    op1.add(optionEven);
+                    evenSum += i;
+                } else {
+                    let optionOdd = document.createElement("option");
+                    optionOdd.text = i;
+                    op2.add(optionOdd);
+                    oddSum += i;
+                }
+            }
+
+            // Update sum fields
+            fv1.value = evenSum;
+            sv1.value = oddSum;
+        }
+    </script>
+</body>
+</html>

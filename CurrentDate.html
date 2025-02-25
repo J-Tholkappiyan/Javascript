@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Button</title>
+    <style>
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="showDate()">Click me for Date</button>
+
+    <script>
+        function showDate() {
+            const currentDate = new Date();
+
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const year = currentDate.getFullYear();
+            
+            const formattedDate = `${year}/${month}/${day}`;
+            alert("Current Date: " + formattedDate);
+        }
+    </script>
+
+</body>
+</html>
